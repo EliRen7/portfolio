@@ -1,26 +1,62 @@
-import React from 'react'
+import React, { useState, useEffect }from 'react'
 import './contact.css'
 import {MdOutlineEmail} from 'react-icons/md'
 import {SiSkypeforbusiness} from 'react-icons/si'
 import {BsCameraVideo} from 'react-icons/bs'
-import { useRef } from 'react';
-import emailjs from 'emailjs-com'
+import { useForm } from '@formcarry/react';
+
+function Contact() {
+  // Call the "useForm" hook in your function component
+  const {state, submit} = useForm({
+    id: 'z-NofMdhiD'
+  });
 
 
-const Contact = () => {
-  const form = useRef()
-  const sendEmail = (e) => {
-    e.preventDefault();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
 
-    emailjs.sendForm('service_an3nx6q', 'template_txrhdub', form.current, 'NRvqU9gmZ7mXweZ7B')
+  const [refreshFlag, setRefreshFlag] = useState(false);
 
-    e.target.reset()
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
+  // Success message
+  useEffect(() => {
+    if (state.submitted) {
+      alert('Thank you! I have received your submission and will respond promptly.');
+      // Clear the form data
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
       });
+      // Trigger a refresh
+      setRefreshFlag(true);
+    }
+  }, [state.submitted]);
+
+  useEffect(() => {
+    if (refreshFlag) {
+      window.location.reload();
+      setRefreshFlag(false);
+    }
+  }, [refreshFlag]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
+
+ 
+  // // Success message
+  // if (state.submitted) {
+  //   alert('Thank you! I have received your submission')
+
+  // }
+
 
   return (
     <div id='contact'>
@@ -32,8 +68,8 @@ const Contact = () => {
           <article className="contact__option">
             <MdOutlineEmail className='contact__option-icon' />
             <h4>Email</h4>
-            <h5>elirenderos@gmail.com</h5>
-            <a href="mailto:elirenderos@gmail.com" target="_blank">Send a message</a>
+            <h5>liz_774@yahoo.com</h5>
+            <a href="mailto:liz_774@yahoo.com" target="_blank">Send a message</a>
           </article>
           <article className="contact__option">
             <SiSkypeforbusiness className='contact__option-icon'/>
@@ -48,16 +84,25 @@ const Contact = () => {
             <a href="https://us05web.zoom.us/j/3277612314?pwd=eW9yOFpKUEVCLzhyVTdWa29aT2QyZz09" target="_blank">Schedule a meeting</a>
           </article>
         </div>
-      {/* END OF CONTACT OPTIONS */}
-        <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name='name' placeholder='Your Full Name' required />
-          <input type="email" name='email' placeholder='Your Email' required />
-          <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
-          <button type='submit' className='btn btn-primary'>Send Message</button>
-        </form>
+      <form onSubmit={submit}>
+      <label htmlFor="name">Name</label>
+      <input id="name" type="name" name="name"/>
+      <label htmlFor="email">Email</label>
+      <input id="email" type="email" name="email"/>
+      <label htmlFor="message">Message</label>
+      <textarea id="message" name="message"/>
+      <button type="submit" className='btn btn-primary'>Send</button>
+    </form>
       </div>
     </div>
   )
 }
 
 export default Contact
+
+
+
+
+
+
+
