@@ -51,11 +51,6 @@ function Contact() {
   };
 
  
-  // // Success message
-  // if (state.submitted) {
-  //   alert('Thank you! I have received your submission')
-
-  // }
 
 
   return (
@@ -84,7 +79,7 @@ function Contact() {
             <a href="https://us05web.zoom.us/j/3277612314?pwd=eW9yOFpKUEVCLzhyVTdWa29aT2QyZz09" target="_blank">Schedule a meeting</a>
           </article>
         </div>
-      <form onSubmit={submit}>
+      <form onSubmit={handleInputChange}>
       <label htmlFor="name">Name</label>
       <input id="name" type="name" name="name"/>
       <label htmlFor="email">Email</label>
