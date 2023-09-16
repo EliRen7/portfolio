@@ -63,8 +63,8 @@ function Contact() {
           <article className="contact__option">
             <MdOutlineEmail className='contact__option-icon' />
             <h4>Email</h4>
-            <h5>liz_774@yahoo.com</h5>
-            <a href="mailto:liz_774@yahoo.com" target="_blank">Send a message</a>
+            <h5>elirenderos@gmail.com</h5>
+            <a href="mailto:elirenderos@gmail.com" target="_blank">Send a message</a>
           </article>
           <article className="contact__option">
             <SiSkypeforbusiness className='contact__option-icon'/>
