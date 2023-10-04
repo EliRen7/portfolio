@@ -3,55 +3,8 @@ import './contact.css'
 import {MdOutlineEmail} from 'react-icons/md'
 import {SiSkypeforbusiness} from 'react-icons/si'
 import {BsCameraVideo} from 'react-icons/bs'
-import { useForm } from '@formcarry/react';
 
 function Contact() {
-  // Call the "useForm" hook in your function component
-  const {state, submit} = useForm({
-    id: 'z-NofMdhiD'
-  });
-
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const [refreshFlag, setRefreshFlag] = useState(false);
-
-  // Success message
-  useEffect(() => {
-    if (state.submitted) {
-      alert('Thank you! I have received your submission and will respond promptly.');
-      // Clear the form data
-      setFormData({
-        name: '',
-        email: '',
-        message: '',
-      });
-      // Trigger a refresh
-      setRefreshFlag(true);
-    }
-  }, [state.submitted]);
-
-  useEffect(() => {
-    if (refreshFlag) {
-      window.location.reload();
-      setRefreshFlag(false);
-    }
-  }, [refreshFlag]);
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
- 
-
 
   return (
     <div id='contact'>
@@ -79,7 +32,7 @@ function Contact() {
             <a href="https://us05web.zoom.us/j/3277612314?pwd=eW9yOFpKUEVCLzhyVTdWa29aT2QyZz09" target="_blank">Schedule a meeting</a>
           </article>
         </div>
-      <form onSubmit={handleInputChange}>
+      <form  action="https://formcarry.com/s/z-NofMdhiD" method="POST" accept-charset="UTF-8">
       <label htmlFor="name">Name</label>
       <input id="name" type="name" name="name"/>
       <label htmlFor="email">Email</label>
