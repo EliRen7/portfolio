@@ -39,7 +39,7 @@ const About = () => {
           </article>
         </div>
         <p>
-          Hey there! I'm Elizabeth, a passionate frontend developer with a knack for turning innovative ideas into beautiful, user-friendly digital experiences. My coding journey is fueled by an insatiable curiosity for the latest technologies and a genuine love for crafting elegant solutions. If you are interested in learning more about me, please send
+          Hey there! I'm Elizabeth, a passionate frontend developer with a knack for turning innovative ideas into beautiful, user-friendly digital experiences. My coding journey is fueled by a curiosity for the latest technologies and a genuine love for crafting solutions. If you are interested in learning more about me, please send
           an email my way!        
         </p>
         <a href="#contact" className='btn btn-primary'>Let's Talk</a>
